@@ -29,26 +29,25 @@ const inquirer = require('inquirer');
 
 // Prompt the user
 inquirer
-
   .prompt([
     {
       type: 'input',//user can enter values 
-      title: 'title',
+      name: 'title',
       message: 'What is the title of your product?'
     },
     {
         type: 'input',
-        title: 'description',
+        name: 'description',
         message: 'Describe your product'
       },
       {
         type: 'input',
-        title: 'installation',
+        name: 'installation',
         message: 'Are there any installation requirements or instructions?'
       },
       {
         type: 'input',
-        title: 'usage',
+        name: 'usage',
         message: 'Please copy an image link of your product in use'
       },
 
@@ -61,40 +60,34 @@ inquirer
 
     {
      type: 'input',
-        title: 'Contributions',
+        name: 'Contributions',
         message: 'Are there special instructions for adding contributions to this product?'
       },
 
       {
         type: 'input',
-        title: 'Tests',
+        name: 'Tests',
         message: 'Are there any tests or examples for your'
       },
 
       {
         type: 'input',
-        title: 'GithubUser',
+        name: 'GithubUser',
         message: 'What is your Github User Name'
       },
 
       {
         type: 'input',
-        title: 'GithubLink',
+        name: 'GithubLink',
         message: 'What is the link to your github?'
       },
 
       {
         type: 'input',
-        title: 'Email',
+        name: 'Email',
         message: 'What is your email?'
       },
 
-    {
-      type: 'checkbox',
-      message: 'What languages do you know?',
-      name: 'stack',
-      choices: ['HTML', 'CSS', 'JavaScript', 'SQL']
-    }
   ]) // Write the user response to a file by chaining the below callback method to the prompt above.
   .then(function(data) {
     console.log("User  response :", data)
