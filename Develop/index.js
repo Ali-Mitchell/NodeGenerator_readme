@@ -4,10 +4,8 @@ const inquirer = require('inquirer');
 const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-
-// Prompt the user
-inquirer
-  .prompt([
+const userInput = () => {
+  return inquirer.prompt([
     {
       type: 'input',//user can enter values 
       name: 'title',
@@ -54,11 +52,16 @@ inquirer
         name: 'GithubUser',
         message: 'What is your Github User Name'
       },
+      {
+        type: 'input',
+        name: 'GithubUser',
+        message: 'What is your Github User Name'
+      },
 
       {
         type: 'input',
-        name: 'GithubLink',
-        message: 'What is the link to your github?'
+        name: 'name',
+        message: 'What ?'
       },
 
       {
@@ -67,27 +70,12 @@ inquirer
         message: 'What is your email?'
       },
 
-  ]); 
-  
-  // Write the user response to a file 
-  // .then(function(data) {
-  //   console.log("User  response :", data)
-  //   // Bonus: Generate the name of your user file from their input
-  //   const filename =
-  //     data.title
-  //       .toLowerCase()
-  //       .split(' ')
-  //       .join('-') + '.md';
+  ])};
 
-  //   fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
-  //     if (err) {
-  //       return console.log(err);
-  //     }
-
-  //     console.log('Success!');
-  //   });
-  // });
-
+//   .then(function(data) {
+//     console.log("User  response:", data)
+//   })
+//   ;
 
 function writeToFile(fileName, data) {
   // **What is the _dirname doing?
@@ -98,7 +86,7 @@ function writeToFile(fileName, data) {
 
 //   // TODO: Create a function to initialize app
 function init() {
-  questions()
+  userInput()
       .then(answers => {
           writeToFile('README.md', generateMarkdown(answers));
           console.log("You're Readme file has been created")
