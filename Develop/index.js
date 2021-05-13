@@ -1,31 +1,9 @@
-// title of my project      input
-//  Description,            input
-//  Table of Contents,      generate as a list/ input as a list?
-//  Installation, 
-//  Usage,                  input
-//  License,                list  notice is added to the section of the README entitled License that explains which license the application is covered under
-                            // An open source license protects contributors and users. Businesses and savvy developers won’t touch a project without this protection.
-
-                            // Existing projects and communities
-                            // MIT License
-                            // GNU General Public License
-                            // No License 
-
-
-//  Contributing,           input
-//  Tests,                  input
-// Questions 
-    //  git hub username,   input
-    // github profile,      input
-    // email                input
-
-    // Click on link in table of contents I am taken to the corresponding section 
-
-
-//npm 
+// Packages required for these application 
 const fs = require('fs');
-//External package so u need to install 
 const inquirer = require('inquirer');
+const path = require('path');
+const generateMarkdown = require('./utils/generateMarkdown');
+
 
 // Prompt the user
 inquirer
@@ -52,6 +30,7 @@ inquirer
       },
 
     {
+      // **Talk about licenses with Namita
       type: 'list',
       name: 'license',
       message: 'Choose an Open Source License for your product. Need more info? Check out https://choosealicense.com/',
@@ -88,28 +67,42 @@ inquirer
         message: 'What is your email?'
       },
 
-  ]) // Write the user response to a file by chaining the below callback method to the prompt above.
-  .then(function(data) {
-    console.log("User  response :", data)
-    // Bonus: Generate the name of your user file from their input
-    const filename =
-      data.userName
-        .toLowerCase()
-        .split(' ')
-        .join('-') + '.json';
+  ]); 
+  
+  // Write the user response to a file 
+  // .then(function(data) {
+  //   console.log("User  response :", data)
+  //   // Bonus: Generate the name of your user file from their input
+  //   const filename =
+  //     data.title
+  //       .toLowerCase()
+  //       .split(' ')
+  //       .join('-') + '.md';
 
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
-      if (err) {
-        return console.log(err);
-      }
+  //   fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
+  //     if (err) {
+  //       return console.log(err);
+  //     }
 
-      console.log('Success!');
-    });
-  });
+  //     console.log('Success!');
+  //   });
+  // });
 
+
+function writeToFile(fileName, data) {
+  // **What is the _dirname doing?
+    fs.writeFile(path.join(__dirname, fileName), data, err =>{
+        console.log(err);
+    })
+}
 
 //   // TODO: Create a function to initialize app
-// function init() {}
-
+function init() {
+  questions()
+      .then(answers => {
+          writeToFile('README.md', generateMarkdown(answers));
+          console.log("You're Readme file has been created")
+      });
+};
 // // Function call to initialize app
-// init();
+init();
