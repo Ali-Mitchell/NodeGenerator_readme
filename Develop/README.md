@@ -1,25 +1,29 @@
-# lakjdsf
+# Secret Show
+
+  [![License Badge](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
 
   ## Description
-  alkdsjf
+  A music application
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
   * [Contribution](#contribution)
-  * [Tests](#tests
+  * [Tests](#tests)
   * [Questions](#questions)
   
   ## Installation 
-  alskdj
+  none
   ## Usage
-  aldskjf
+  ![](https://user-images.githubusercontent.com/79678327/116837903-8084fb00-ab89-11eb-9806-6e462a47eebc.png)
   ## License
-  This project is covered under the No License license.
+  This project is covered under the MIT license.
   ## Contribution
-  undefined
+  This project was created by Ali-Mitchell Got to [Github](https://www.github.com/undefined)
+  Special instructions for contributing:
+  none
   ## Tests
   undefined
   ## Questions
-  If you have any questions and would like to get in contact, you can reach me at my [GitHub](https://www.github.com/undefined) or via email undefined  
+  For questions please contact: ali.mitchell.n@gmail.com

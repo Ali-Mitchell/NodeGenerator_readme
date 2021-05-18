@@ -32,7 +32,7 @@ const userInput = () => {
       type: 'list',
       name: 'license',
       message: 'Choose an Open Source License for your product. Need more info? Check out https://choosealicense.com/',
-      choices: ['Existing projects and communities', 'MIT License', 'GNU General Public License', 'No License']
+      choices: ['MIT', 'Apache', 'GPL-3.0', 'BSD-3', 'None']
     },
 
     {
@@ -44,7 +44,7 @@ const userInput = () => {
       {
         type: 'input',
         name: 'Tests',
-        message: 'Are there any tests or examples for your'
+        message: 'Are there any tests or examples for your product?'
       },
 
       {
@@ -57,13 +57,6 @@ const userInput = () => {
         name: 'GithubUser',
         message: 'What is your Github User Name'
       },
-
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What ?'
-      },
-
       {
         type: 'input',
         name: 'Email',
